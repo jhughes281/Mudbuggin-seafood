@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mudbuggin Seafood & Shuck & Jive Oysters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #8B1A1A;
+    --red-light: #B22222;
+    --red-dark: #5C0F0F;
+    --cream: #F5EDD8;
+    --cream-dark: #E8D9B8;
+    --tan: #C4A35A;
+    --tan-light: #DFC07A;
+    --brown: #3D2B1F;
+    --brown-mid: #6B4226;
+    --teal: #1B6B5A;
+    --teal-light: #2D8A72;
+    --white: #FDFAF4;
+    --text-dark: #1C1008;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Libre Baskerville', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--brown);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--tan);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--tan-light);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--cream); font-weight: 400; font-size: 11px; display: block; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cream-dark);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--tan-light); }
+  .nav-cta {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--cream);
+    border: none;
+    padding: 10px 22px;
+    cursor: pointer;
+    border: 1.5px solid var(--red-light);
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--red-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--brown);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(196,163,90,0.04) 0px, rgba(196,163,90,0.04) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(-45deg, rgba(196,163,90,0.04) 0px, rgba(196,163,90,0.04) 1px, transparent 1px, transparent 40px);
+  }
+  .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--tan);
+    opacity: 0.5;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 0.95;
+    letter-spacing: -1px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .hero h1 .highlight { color: var(--tan-light); }
+  .hero-sub {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--teal-light);
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .hero-divider {
+    width: 80px;
+    height: 2px;
+    background: var(--tan);
+    margin: 0 auto 28px;
+    position: relative;
+  }
+  .hero p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: rgba(245,237,216,0.7);
+    max-width: 500px;
+    margin-bottom: 40px;
+    position: relative;
+    line-height: 1.8;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  .btn-red {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--cream);
+    border: 1.5px solid var(--red-light);
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-red:hover { background: var(--red-light); }
+  .btn-outline {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--cream);
+    border: 1.5px solid rgba(245,237,216,0.35);
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--tan); color: var(--tan-light); }
+  .hero-badges {
+    display: flex;
+    gap: 32px;
+    margin-top: 56px;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    text-align: center;
+  }
+  .badge-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--tan-light);
+    line-height: 1;
+  }
+  .badge-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,237,216,0.45);
+    margin-top: 4px;
+  }
+
+  /* ── SECTION STYLES ── */
+  section { padding: 80px 40px; }
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--tan);
+    opacity: 0.4;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--brown);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--red);
+  }
+  .section-body {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--brown-mid);
+    line-height: 1.8;
+    max-width: 540px;
+  }
+
+  /* ── BRANDS SPLIT ── */
+  .brands {
+    background: var(--brown);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+  .brand-half {
+    padding: 60px 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .brand-half:first-child {
+    background: var(--red-dark);
+    border-right: 2px solid var(--tan);
+  }
+  .brand-half:last-child {
+    background: var(--teal);
+  }
+  .brand-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .brand-desc {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: rgba(245,237,216,0.65);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 320px;
+  }
+  .brand-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border: 1px solid rgba(245,237,216,0.3);
+    color: var(--tan-light);
+  }
+
+  /* ── MENU ── */
+  .menu-section { background: var(--white); }
+  .menu-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .menu-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--cream-dark);
+  }
+  .tab {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    cursor: pointer;
+    color: var(--brown-mid);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: all 0.2s;
+  }
+  .tab.active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+  .tab:hover { color: var(--red); }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--cream-dark); }
+
+  .menu-item {
+    background: var(--white);
+    padding: 28px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    transition: background 0.15s;
+  }
+  .menu-item:hover { background: var(--cream); }
+  .menu-item-info { flex: 1; }
+  .menu-item-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .menu-item-desc {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--brown-mid);
+    line-height: 1.6;
+  }
+  .menu-item-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--cream-dark);
+    color: var(--brown-mid);
+    padding: 3px 8px;
+    margin-top: 8px;
+  }
+  .menu-item-tag.hot { background: #FDE8D8; color: var(--red); }
+  .menu-item-tag.new { background: #D8EDE6; color: var(--teal); }
+  .menu-item-price {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--red);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .about-text { padding: 80px 56px 80px 40px; }
+  .about-visual {
+    background: var(--brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .about-quote {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--tan-light);
+    line-height: 1.5;
+    text-align: center;
+    max-width: 320px;
+  }
+  .about-quote-attr {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,237,216,0.4);
+  }
+  .about-list {
+    list-style: none;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .about-list li {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--brown-mid);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .about-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--tan);
+    flex-shrink: 0;
+    transform: rotate(45deg);
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: var(--red-dark);
+    padding: 72px 40px;
+    text-align: center;
+    border-top: 3px solid var(--tan);
+    border-bottom: 3px solid var(--tan);
+  }
+  .cta-banner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .cta-banner p {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: rgba(245,237,216,0.6);
+    margin-bottom: 36px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .contact-info { padding: 80px 56px 80px 40px; }
+  .contact-form-side {
+    background: var(--cream);
+    padding: 80px 40px;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--red-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--tan-light);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .contact-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-bottom: 4px;
+  }
+  .contact-value {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--brown);
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1.5px solid var(--cream-dark);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--brown);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--tan); }
+  .form-group textarea { height: 100px; resize: vertical; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    padding: 56px 40px 32px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(196,163,90,0.2);
+  }
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--tan-light);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .footer-brand-sub {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 16px;
+  }
+  .footer-tagline {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: rgba(245,237,216,0.4);
+    line-height: 1.7;
+    max-width: 260px;
+  }
+  .footer-col-title {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-bottom: 16px;
+  }
+  .footer-links-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-links-list a {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: rgba(245,237,216,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links-list a:hover { color: var(--tan-light); }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-copy {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: rgba(245,237,216,0.25);
+  }
+  .footer-socials {
+    display: flex;
+    gap: 16px;
+  }
+  .footer-socials a {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(245,237,216,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-socials a:hover { color: var(--tan-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1 { animation: fadeUp 0.7s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero p { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-btns { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-badges { animation: fadeUp 0.7s 0.4s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 24px; min-height: 70vh; }
+    section { padding: 60px 24px; }
+    .brands { grid-template-columns: 1fr; }
+    .brand-half:first-child { border-right: none; border-bottom: 2px solid var(--tan); }
+    .about-section { grid-template-columns: 1fr; }
+    .about-text { padding: 60px 24px; }
+    .contact-section { grid-template-columns: 1fr; }
+    .contact-info { padding: 60px 24px 0; }
+    .contact-form-side { padding: 40px 24px 60px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    Mudbuggin Seafood
+    <span>& Shuck &amp; Jive Oysters</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Order / Book</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Houston, Texas</div>
+  <h1><span class="highlight">Mudbuggin</span><br>Seafood</h1>
+  <div class="hero-sub">&amp; Shuck &amp; Jive Oysters</div>
+  <div class="hero-divider"></div>
+  <p>Real Southern seafood. Crawfish boiled right, oysters shucked fresh, and everything made with love straight from the Gulf Coast tradition.</p>
+  <div class="hero-btns">
+    <a class="btn-red" href="#menu">See the menu</a>
+    <a class="btn-outline" href="#catering">Book catering</a>
+  </div>
+  <div class="hero-badges">
+    <div class="badge"><div class="badge-num">100%</div><div class="badge-label">Gulf fresh</div></div>
+    <div class="badge"><div class="badge-num">Boils</div><div class="badge-label">Done right</div></div>
+    <div class="badge"><div class="badge-num">Catering</div><div class="badge-label">Available</div></div>
+    <div class="badge"><div class="badge-num">HTX</div><div class="badge-label">Born & raised</div></div>
+  </div>
+</section>
+
+<!-- BRANDS SPLIT -->
+<div class="brands">
+  <div class="brand-half">
+    <div class="brand-icon">🦞</div>
+    <div class="brand-name">Mudbuggin<br>Seafood</div>
+    <div class="brand-desc">Crawfish, boiled shrimp, sausage, corn, potatoes, turkey necks — the full Southern boil experience done the Houston way. Big pots, bold seasoning, good people.</div>
+    <span class="brand-tag">Boils · Fry · BBQ</span>
+  </div>
+  <div class="brand-half">
+    <div class="brand-icon">🦪</div>
+    <div class="brand-name">Shuck &amp; Jive<br>Oysters</div>
+    <div class="brand-desc">Gulf Coast oysters served chargrilled and fresh. We bring the bayou to your table — smoky, buttery, and seasoned just right. The jive is in every bite.</div>
+    <span class="brand-tag">Chargrilled · Raw Bar</span>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div>
+      <div class="section-tag">What we serve</div>
+      <div class="section-title">The <em>Menu</em></div>
+    </div>
+    <div class="section-body" style="max-width:300px; font-size:13px;">Fresh daily. Cooked to order. Ask about our seasonal specials and catering packages.</div>
+  </div>
+
+  <div class="menu-tabs" role="tablist">
+    <button class="tab active" onclick="switchTab('boils', this)" role="tab">Boils & Mains</button>
+    <button class="tab" onclick="switchTab('oysters', this)" role="tab">Oysters</button>
+    <button class="tab" onclick="switchTab('fried', this)" role="tab">Fried & Sides</button>
+  </div>
+
+  <div id="tab-boils" class="menu-panel active">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Crawfish boil</div>
+        <div class="menu-item-desc">Live crawfish boiled in our signature Cajun-Creole seasoning with corn and potatoes</div>
+        <span class="menu-item-tag hot">House favorite</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Boiled shrimp</div>
+        <div class="menu-item-desc">Gulf shrimp boiled whole in seasoned water with bay leaves, garlic, and lemon</div>
+        <span class="menu-item-tag hot">Fan favorite</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">BBQ shrimp</div>
+        <div class="menu-item-desc">Jumbo shrimp in a rich, buttery Worcestershire-pepper sauce — Houston-style</div>
+        <span class="menu-item-tag hot">Must try</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Turkey necks</div>
+        <div class="menu-item-desc">Slow-braised turkey necks seasoned deep and boiled tender to the bone</div>
+        <span class="menu-item-tag">Soul food</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Smoked sausage</div>
+        <div class="menu-item-desc">Andouille-style smoked sausage, boiled or grilled, served with dipping sauce</div>
+        <span class="menu-item-tag">Southern classic</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Corn on the cob</div>
+        <div class="menu-item-desc">Fresh corn boiled in seasoned crawfish water — soaks up every bit of flavor</div>
+        <span class="menu-item-tag">Add-on</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Red potatoes</div>
+        <div class="menu-item-desc">Seasoned red potatoes boiled in the pot — buttery, spiced, and satisfying</div>
+        <span class="menu-item-tag">Add-on</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+  </div>
+
+  <div id="tab-oysters" class="menu-panel">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Chargrilled oysters</div>
+        <div class="menu-item-desc">Gulf oysters on the half shell, chargrilled with garlic butter, herbs, and Parmesan — Shuck &amp; Jive signature</div>
+        <span class="menu-item-tag new">Shuck &amp; Jive</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Half dozen oysters</div>
+        <div class="menu-item-desc">Six chargrilled Gulf oysters served with crusty bread for soaking up the butter sauce</div>
+        <span class="menu-item-tag new">Shuck &amp; Jive</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Full dozen oysters</div>
+        <div class="menu-item-desc">Twelve chargrilled oysters — perfect for sharing or not, we won't judge</div>
+        <span class="menu-item-tag new">Shuck &amp; Jive</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+  </div>
+
+  <div id="tab-fried" class="menu-panel">
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Fried fish</div>
+        <div class="menu-item-desc">Gulf fish filets in a seasoned cornmeal crust, fried golden and crispy</div>
+        <span class="menu-item-tag hot">Southern staple</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">Fried shrimp</div>
+        <div class="menu-item-desc">Gulf shrimp hand-battered and fried to a perfect crunch, served with remoulade</div>
+        <span class="menu-item-tag hot">Fan favorite</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">French fries</div>
+        <div class="menu-item-desc">Hand-cut seasoned fries, crispy outside and soft inside — the perfect side</div>
+        <span class="menu-item-tag">Side</span>
+      </div>
+      <div class="menu-item-price">Mkt</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-text">
+    <div class="section-tag">Our story</div>
+    <div class="section-title">Rooted in the <em>Gulf Coast</em></div>
+    <div class="section-body">
+      <p>Mudbuggin Seafood was built on a simple idea: serve Gulf Coast seafood the way it's supposed to be — fresh, seasoned right, and shared with people you love.</p>
+      <br>
+      <p>Shuck &amp; Jive Oysters brings the raw bar and chargrilled oyster tradition straight from the Louisiana and Texas Gulf to Houston tables. Two brands, one kitchen, one mission.</p>
+    </div>
+    <ul class="about-list">
+      <li>Houston-based, Gulf Coast sourced</li>
+      <li>Catering for events of any size</li>
+      <li>Crawfish boils done the right way</li>
+      <li>Oysters shucked and chargrilled fresh</li>
+      <li>Available for private events &amp; pop-ups</li>
+    </ul>
+  </div>
+  <div class="about-visual">
+    <div class="about-quote">"Good seafood don't need much — just fresh ingredients and somebody who knows what they're doing."</div>
+    <div class="about-quote-attr">— Mudbuggin Seafood</div>
+  </div>
+</section>
+
+<!-- CATERING CTA -->
+<section class="cta-banner" id="catering">
+  <h2>Book Us for Your Next Event</h2>
+  <p>Backyard boils, corporate events, weddings, pop-ups — we bring the full Mudbuggin experience to you. Crawfish, oysters, the works.</p>
+  <div class="cta-row">
+    <a class="btn-red" href="#contact">Request a quote</a>
+    <a class="btn-outline" href="#menu">View full menu</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-info">
+    <div class="section-tag">Get in touch</div>
+    <div class="section-title" style="margin-bottom:36px;">Let's <em>Talk</em></div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Houston, Texas</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Phone / Text</div>
+        <div class="contact-value">(713) 555-0190</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">info@mudbugginseafood.com</div>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Social</div>
+        <div class="contact-value">@mudbugginseafood</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-side">
+    <div class="section-tag">Catering inquiry</div>
+    <div style="font-family: var(--font-display); font-size:22px; font-weight:700; color:var(--brown); margin-bottom:28px; line-height:1.2;">Tell us about<br>your event</div>
+
+    <div class="form-group">
+      <label>Your name</label>
+      <input type="text" placeholder="Full name">
+    </div>
+    <div class="form-group">
+      <label>Phone or email</label>
+      <input type="text" placeholder="Best way to reach you">
+    </div>
+    <div class="form-group">
+      <label>Event type</label>
+      <select>
+        <option value="">Select event type</option>
+        <option>Backyard crawfish boil</option>
+        <option>Corporate event</option>
+        <option>Wedding / reception</option>
+        <option>Birthday party</option>
+        <option>Pop-up / festival</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Guest count &amp; date</label>
+      <input type="text" placeholder="e.g. 50 guests, July 4th">
+    </div>
+    <div class="form-group">
+      <label>Tell us more</label>
+      <textarea placeholder="What are you looking for? Any dietary needs?"></textarea>
+    </div>
+    <button class="btn-red" style="width:100%; padding:14px; font-size:12px; letter-spacing:2px;">Send inquiry</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Mudbuggin Seafood</div>
+      <div class="footer-brand-sub">&amp; Shuck &amp; Jive Oysters</div>
+      <div class="footer-tagline">Houston-born Gulf Coast seafood. Crawfish boils, chargrilled oysters, fried classics — done right every time.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Menu</div>
+      <ul class="footer-links-list">
+        <li><a href="#menu">Boils &amp; Mains</a></li>
+        <li><a href="#menu">Oysters</a></li>
+        <li><a href="#menu">Fried &amp; Sides</a></li>
+        <li><a href="#catering">Catering</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links-list">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Follow us</div>
+      <ul class="footer-links-list">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Google</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Mudbuggin Seafood &amp; Shuck &amp; Jive Oysters. Houston, TX.</div>
+    <div class="footer-socials">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchTab(name, el) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
