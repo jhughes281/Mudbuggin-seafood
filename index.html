@@ -579,6 +579,8 @@
     font-size: 15px;
     color: var(--brown);
   }
+   a.contact-value{text-decoration:none;transition:color .2s}
+   a.contact-value:hover{color:var(--red)}
   .form-group { margin-bottom: 20px; }
   .form-group label {
     display: block;
@@ -845,7 +847,7 @@
     <div class="badge"><div class="badge-num">100%</div><div class="badge-label">Gulf fresh</div></div>
     <div class="badge"><div class="badge-num">Boils</div><div class="badge-label">Done right</div></div>
     <div class="badge"><div class="badge-num">Catering</div><div class="badge-label">Available</div></div>
-    <div class="badge"><div class="badge-num">HTX</div><div class="badge-label">Born & raised</div></div>
+    <div class="badge"><div class="badge-num">NOLA</div><div class="badge-label">Born & raised</div></div>
   </div>
 </section>
 
@@ -1047,6 +1049,7 @@
       </div>
       <div style="font-family:var(--font-display);font-size:30px;color:var(--cream);line-height:1.05;">Craig Knox</div>
       <div style="font-family:var(--font-sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tan-light);margin:9px 0 22px;">Owner &amp; Founder</div>
+      <div style="font-family:var(--font-display);font-size:27px;font-style:italic;color:var(--tan);margin:2px 0 20px;letter-spacing:.5px;">&ldquo;Oh&nbsp;Yeah!&rdquo;</div>
       <p style="font-family:var(--font-body);font-size:14px;line-height:1.85;color:rgba(245,237,216,.78);margin:0 0 26px;">Born and raised in Uptown New Orleans, Craig learned to cook at his grandmothers&rsquo; and mother&rsquo;s side. He fell for seafood at 13, and by 19 had the Gulf Coast boil down cold &mdash; crawfish, shrimp, oysters, and crab. He dreamed up the name &ldquo;Mudbuggin Seafood&rdquo; on a New Orleans porch, and it&rsquo;s been his ever since.</p>
       <div class="about-quote" style="font-size:20px;">&ldquo;There is good in every bad situation &mdash; you just have to find it. But most of all, have patience.&rdquo;</div>
       <div class="about-quote-attr">&mdash; Craig Knox</div>
@@ -1147,7 +1150,7 @@
       </div>
       <div>
         <div class="contact-label">Email</div>
-        <div class="contact-value">Bookmudbugginseafood@gmail.com</div>
+        <a href="mailto:Bookmudbugginseafood@gmail.com" class="contact-value">Bookmudbugginseafood@gmail.com</a>
       </div>
     </div>
 
@@ -1157,7 +1160,7 @@
       </div>
       <div>
         <div class="contact-label">Social</div>
-        <div class="contact-value">@mudbuggin_seafood</div>
+        <a href="https://www.instagram.com/mudbuggin_seafood/" target="_blank" rel="noopener" class="contact-value">@mudbuggin_seafood</a>
       </div>
     </div>
   </div>
