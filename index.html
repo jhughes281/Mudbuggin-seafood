@@ -829,7 +829,7 @@
     <li><a href="#catering">Catering</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Order / Book</button>
+  <button class="nav-cta" data-order>Order Online</button>
 </nav>
 
 <!-- HERO -->
@@ -840,7 +840,8 @@
   <div class="hero-divider"></div>
   <p>Real Southern seafood. Crawfish boiled right, oysters shucked fresh, and everything made with love straight from the Gulf Coast tradition.</p>
   <div class="hero-btns">
-    <a class="btn-red" href="#menu">See the menu</a>
+    <a class="btn-red" data-order href="#contact">Order Online</a>
+    <a class="btn-outline" href="#menu">See the menu</a>
     <a class="btn-outline" href="#catering">Book catering</a>
   </div>
   <div class="hero-badges">
@@ -1021,6 +1022,12 @@
       </div>
       <div class="menu-item-price">Mkt</div>
     </div>
+  </div>
+
+  <div class="order-cta">
+    <p class="order-cta-line">See something you like?</p>
+    <a class="btn-red" data-order href="#contact">Order Online &amp; Pay</a>
+    <p class="order-cta-note">Secure checkout &middot; Powered by Square</p>
   </div>
 </section>
 
@@ -1264,6 +1271,22 @@
   </div>
 </footer>
 
+<!-- Floating Order Online button -->
+<a class="float-order" data-order href="#contact" aria-label="Order Online">🦞 Order Online</a>
+
+<style>
+  .order-cta{text-align:center;margin:56px auto 6px;max-width:560px;padding:0 20px}
+  .order-cta-line{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--red);margin-bottom:18px}
+  .order-cta .btn-red{font-size:14px;padding:16px 42px}
+  .order-cta-note{font-family:var(--font-sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown-mid);margin-top:16px;opacity:.85}
+  .float-order{position:fixed;right:20px;bottom:20px;z-index:200;background:var(--red);color:var(--cream);
+    font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+    padding:15px 26px;border-radius:50px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35);
+    border:1.5px solid var(--red-light);transition:background .2s,transform .2s}
+  .float-order:hover{background:var(--red-light);transform:translateY(-2px)}
+  @media(max-width:600px){.float-order{right:14px;bottom:14px;padding:13px 20px;font-size:12px}}
+</style>
+
 <script>
 function switchTab(name, el) {
   document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
@@ -1271,6 +1294,28 @@ function switchTab(name, el) {
   document.getElementById('tab-' + name).classList.add('active');
   el.classList.add('active');
 }
+
+/* ── Square Online ordering ──────────────────────────────
+   SET THIS once: paste your Square Online site URL below
+   (e.g. "https://mudbuggin-seafood.square.site" or your custom
+   ordering domain). Until it's set, the Order buttons scroll to
+   the Contact section so nothing is ever broken. */
+var SQUARE_ORDER_URL = "https://YOUR-STORE.square.site";
+(function(){
+  var ready = SQUARE_ORDER_URL && SQUARE_ORDER_URL.indexOf("YOUR-STORE") === -1;
+  document.querySelectorAll('[data-order]').forEach(function(el){
+    if (ready && el.tagName === 'A'){ el.href = SQUARE_ORDER_URL; el.target = '_blank'; el.rel = 'noopener'; }
+    el.addEventListener('click', function(e){
+      if (ready){
+        if (el.tagName !== 'A'){ e.preventDefault(); window.open(SQUARE_ORDER_URL, '_blank', 'noopener'); }
+      } else {
+        e.preventDefault();
+        var c = document.getElementById('contact');
+        if (c) c.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
